@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhanush E | English ⇄ Tamil Translator, Subtitler &amp; AI Linguistic QA Specialist</title>
+<meta name="description" content="Portfolio of Dhanush E, 1st-Year B.E. EEE student, native English ⇄ Tamil translator, subtitler, audio transcriptionist and AI linguistic QA specialist.">
+<meta name="theme-color" content="#160409">
+<meta property="og:title" content="Dhanush E | English ⇄ Tamil Translator &amp; AI Linguistic QA Specialist">
+<meta property="og:description" content="Technical translation, subtitling, video localization, Tamil audio transcription and AI data annotation.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;family=Noto+Sans+Tamil:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#160409;
+  --bg-1:#3a0916;
+  --bg-2:#520d20;
+  --coral:#ff3b5c;
+  --crimson:#e11d48;
+  --gold:#fbbf24;
+  --white:#ffffff;
+  --text:#f6e9ec;
+  --muted:#d2b3ba;
+  --card:rgba(255,255,255,0.05);
+  --card-border:rgba(255,255,255,0.10);
+  --radius:20px;
+  --shadow-glow:0 12px 40px rgba(225,29,72,0.35);
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-display:'Oswald','Inter',Impact,sans-serif;
+  --font-tamil:'Noto Sans Tamil','Inter',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--bg-0);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* ---------- Cinematic animated background ---------- */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;
+  background:linear-gradient(160deg,var(--bg-0) 0%,var(--bg-1) 55%,var(--bg-2) 100%);
+  background-size:200% 200%;animation:bgShift 28s ease-in-out infinite alternate}
+@keyframes bgShift{0%{background-position:0% 0%}100%{background-position:100% 100%}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;will-change:transform}
+.orb.o1{width:46vmax;height:46vmax;left:-14vmax;top:-12vmax;background:radial-gradient(circle,rgba(255,59,92,.55),transparent 65%);animation:float1 22s ease-in-out infinite alternate}
+.orb.o2{width:40vmax;height:40vmax;right:-12vmax;top:22vh;background:radial-gradient(circle,rgba(225,29,72,.5),transparent 65%);animation:float2 26s ease-in-out infinite alternate}
+.orb.o3{width:30vmax;height:30vmax;left:20vw;bottom:-14vmax;background:radial-gradient(circle,rgba(251,191,36,.22),transparent 65%);animation:float3 30s ease-in-out infinite alternate}
+@keyframes float1{0%{transform:translate(0,0) scale(1)}100%{transform:translate(12vw,14vh) scale(1.15)}}
+@keyframes float2{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-14vw,-10vh) scale(1.2)}}
+@keyframes float3{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10vw,-12vh) scale(1.1)}}
+.waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:46vh;opacity:.9}
+.waves .w{fill:none;stroke-linecap:round}
+.waves .wave-a{animation:waveSlide 18s ease-in-out infinite alternate}
+.waves .wave-b{animation:waveSlide 24s ease-in-out infinite alternate-reverse}
+.waves .wave-c{animation:waveSlide 30s ease-in-out infinite alternate}
+@keyframes waveSlide{0%{transform:translateX(-4%)}100%{transform:translateX(4%)}}
+.ribbon{position:absolute;width:140vmax;height:22vmax;left:50%;top:50%;
+  background:linear-gradient(90deg,transparent,rgba(255,59,92,.10),rgba(251,191,36,.07),transparent);
+  border-top:1px solid rgba(255,59,92,.18);border-bottom:1px solid rgba(251,191,36,.10);
+  transform-origin:center;will-change:transform}
+.ribbon.r1{transform:translate(-50%,-50%) rotate(-28deg);animation:ribbon1 40s ease-in-out infinite alternate}
+.ribbon.r2{transform:translate(-50%,-50%) rotate(24deg);width:120vmax;height:14vmax;animation:ribbon2 48s ease-in-out infinite alternate}
+@keyframes ribbon1{0%{transform:translate(-50%,-52%) rotate(-28deg)}100%{transform:translate(-50%,-46%) rotate(-24deg)}}
+@keyframes ribbon2{0%{transform:translate(-50%,-44%) rotate(24deg)}100%{transform:translate(-50%,-54%) rotate(28deg)}}
+.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(10,2,5,.55) 100%)}
+
+/* ---------- Layout ---------- */
+.container{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
+section{padding:84px 0;position:relative}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px}
+.section-title{font-family:var(--font-display);font-size:clamp(1.9rem,6vw,3rem);line-height:1.15;text-transform:uppercase;letter-spacing:.02em;color:var(--white);margin-bottom:14px}
+.section-title span{color:var(--coral)}
+.section-sub{color:var(--muted);max-width:680px;margin-bottom:38px;font-size:1rem}
+.divider{width:64px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--coral),var(--gold));margin:0 0 22px}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Nav ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--coral),var(--gold));z-index:200;box-shadow:0 0 12px var(--coral)}
+header.nav{position:fixed;top:0;left:0;right:0;z-index:150;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+header.nav.scrolled{background:rgba(22,4,9,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--card-border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.08em;color:var(--white);display:flex;align-items:center;gap:10px}
+.brand .mono{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:.95rem;background:linear-gradient(135deg,var(--coral),var(--crimson));box-shadow:0 0 18px rgba(255,59,92,.55)}
+.nav-links{display:none;gap:26px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--muted);transition:color .25s;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:linear-gradient(90deg,var(--coral),var(--gold));transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{display:none;padding:10px 20px;border-radius:999px;font-weight:600;font-size:.85rem;background:linear-gradient(135deg,var(--coral),var(--crimson));box-shadow:0 6px 22px rgba(225,29,72,.45);transition:transform .25s,box-shadow .25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,59,92,.6)}
+.burger{width:44px;height:44px;border-radius:12px;border:1px solid var(--card-border);background:var(--card);display:grid;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:transform .3s,background .3s;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger.open span{background:transparent}
+.burger.open span::before{transform:translateY(6px) rotate(45deg)}
+.burger.open span::after{transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{position:fixed;top:68px;left:0;right:0;background:rgba(22,4,9,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:14px 20px 26px;border-bottom:1px solid var(--card-border);transform:translateY(-130%);transition:transform .4s ease;z-index:140;visibility:hidden}
+.mobile-menu.open{transform:none;visibility:visible}
+.mobile-menu a{display:block;padding:14px 4px;border-bottom:1px solid var(--card-border);font-weight:500;color:var(--text)}
+.mobile-menu a:last-child{border-bottom:none;margin-top:14px;text-align:center;border-radius:999px;background:linear-gradient(135deg,var(--coral),var(--crimson));font-weight:600}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:110px 0 80px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.hero-kicker::before{content:"";width:34px;height:2px;background:linear-gradient(90deg,var(--coral),var(--gold))}
+.hero h1{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,13.5vw,6.2rem);white-space:nowrap;line-height:.98;letter-spacing:.02em;color:var(--white);
+  text-shadow:0 0 36px rgba(255,59,92,.35)}
+.hero-text{min-width:0}
+.hero h1 .accent{display:inline-block;background:linear-gradient(100deg,var(--coral),var(--gold) 80%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hero-sub{margin-top:20px;font-size:clamp(1rem,3.6vw,1.2rem);color:var(--text);max-width:560px;line-height:1.6}
+.hero-sub strong{color:var(--gold);font-weight:600}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:.82rem;font-weight:600;color:var(--white);
+  background:rgba(255,59,92,.12);border:1px solid rgba(255,59,92,.4);backdrop-filter:blur(6px);animation:bob 5s ease-in-out infinite}
+.pill:nth-child(2){animation-delay:-1.6s;background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.45)}
+.pill:nth-child(3){animation-delay:-3.2s}
+.pill:nth-child(4){animation-delay:-4.4s;background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.45)}
+.pill:nth-child(4) .dot{background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 10px var(--coral)}
+.pill:nth-child(2) .dot{background:var(--gold);box-shadow:0 0 10px var(--gold)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s;min-height:50px}
+.btn-primary{background:linear-gradient(135deg,var(--coral),var(--crimson));color:var(--white);box-shadow:0 8px 28px rgba(225,29,72,.5)}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 14px 38px rgba(255,59,92,.7)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:var(--white);background:rgba(255,255,255,.04)}
+.btn-ghost:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 32px rgba(251,191,36,.25);color:var(--gold)}
+.btn svg{width:18px;height:18px}
+.scroll-ind{margin-top:44px;display:inline-flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:.72rem;letter-spacing:.3em;color:var(--muted);font-weight:600}
+.scroll-ind .arrow{font-size:1.3rem;color:var(--coral);animation:scrollBounce 1.8s ease-in-out infinite;display:inline-block}
+.scroll-ind:hover{color:var(--white)}
+@keyframes scrollBounce{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(9px);opacity:1}}
+
+.hero-visual{display:flex;justify-content:center}
+.photo-wrap{position:relative;width:320px;max-width:100%}
+.photo-wrap::before{content:"";position:absolute;inset:-26px;border-radius:50%;background:radial-gradient(circle,rgba(255,59,92,.45),transparent 70%);filter:blur(24px);animation:glowPulse 4s ease-in-out infinite alternate;z-index:0}
+@keyframes glowPulse{0%{opacity:.55;transform:scale(.96)}100%{opacity:1;transform:scale(1.04)}}
+.photo-frame{position:relative;z-index:1;width:320px;height:320px;max-width:100%;aspect-ratio:1 / 1;border-radius:50%;overflow:hidden;
+  border:4px solid #ff3b5c;box-shadow:0 0 35px rgba(255, 59, 92, 0.5);background:linear-gradient(135deg,var(--bg-2),var(--bg-1))}
+.photo-frame img{transform:scale(1.05)}
+.photo-frame .monogram{position:absolute;inset:0;display:none;place-items:center;font-family:var(--font-display);font-size:6.5rem;font-weight:700;letter-spacing:.06em;
+  background:linear-gradient(135deg,var(--coral),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.photo-frame.no-photo .monogram{display:grid}
+.float-badge{position:absolute;z-index:3;padding:10px 16px;border-radius:14px;font-size:.78rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;
+  background:rgba(40,8,18,.85);border:1px solid rgba(255,59,92,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 18px rgba(255,59,92,.3);white-space:nowrap}
+.float-badge.b1{top:14px;right:-14px;animation:bob 5.5s ease-in-out infinite}
+.float-badge.b2{bottom:14px;left:-14px;border-color:rgba(251,191,36,.6);box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 18px rgba(251,191,36,.28);animation:bob 6.5s ease-in-out infinite -2.5s}
+.float-badge i{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 10px var(--coral)}
+.float-badge.b2 i{background:var(--gold);box-shadow:0 0 10px var(--gold)}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.about-text p{color:var(--text);margin-bottom:20px;font-size:1.02rem}
+.about-text p strong{color:var(--gold);font-weight:600}
+.about-side{display:grid;gap:18px;align-content:start}
+.glass{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:26px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .35s,border-color .35s,box-shadow .35s}
+.glass:hover{transform:translateY(-6px);border-color:rgba(255,59,92,.55);box-shadow:var(--shadow-glow)}
+.glass h3{font-family:var(--font-display);font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em;color:var(--white);margin-bottom:14px}
+.glass h3 span{color:var(--coral)}
+.edu-item{display:flex;gap:14px;margin-bottom:16px}
+.edu-item:last-child{margin-bottom:0}
+.edu-item .bar{width:3px;border-radius:3px;background:linear-gradient(180deg,var(--coral),var(--gold));flex-shrink:0}
+.edu-item b{display:block;color:var(--white);font-size:.95rem}
+.edu-item small{color:var(--muted);font-size:.82rem}
+.lang-row{display:flex;justify-content:space-between;font-size:.9rem;padding:8px 0;border-bottom:1px dashed var(--card-border)}
+.lang-row:last-child{border-bottom:none}
+.lang-row span:last-child{color:var(--gold);font-weight:600}
+.skills-block{margin-top:40px}
+.skills-block h3{font-family:var(--font-display);font-size:1.25rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;color:var(--white)}
+.skills-block h3 span{color:var(--coral)}
+.tags{display:flex;flex-wrap:wrap;gap:12px}
+.tag{padding:11px 20px;border-radius:999px;font-weight:600;font-size:.9rem;color:var(--white);background:var(--card);border:1px solid var(--card-border);transition:transform .25s,background .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+.tag:hover,.tag:focus-visible{transform:translateY(-4px) scale(1.05);background:linear-gradient(135deg,rgba(255,59,92,.35),rgba(225,29,72,.2));border-color:var(--coral);box-shadow:0 10px 26px rgba(255,59,92,.4)}
+.tag.active{background:linear-gradient(135deg,var(--coral),var(--crimson));border-color:transparent;box-shadow:0 8px 24px rgba(225,29,72,.5)}
+.tag-note{margin-top:14px;min-height:1.6em;font-size:.88rem;color:var(--gold)}
+
+/* ---------- Services ---------- */
+.cards-4{display:grid;grid-template-columns:1fr;gap:20px}
+.service{padding:30px 26px;border-radius:var(--radius);background:var(--card);border:1px solid var(--card-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative;overflow:hidden;transition:transform .4s,border-color .4s,box-shadow .4s}
+.service::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,59,92,.18),transparent 55%);opacity:0;transition:opacity .4s}
+.service:hover{transform:translateY(-10px);border-color:var(--coral);box-shadow:0 18px 50px rgba(225,29,72,.45)}
+.service:hover::before{opacity:1}
+.s-icon{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;margin-bottom:20px;background:linear-gradient(135deg,var(--coral),var(--crimson));box-shadow:0 8px 24px rgba(225,29,72,.5);position:relative;z-index:1;transition:transform .4s}
+.service:hover .s-icon{transform:rotate(-6deg) scale(1.1)}
+.s-icon svg{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.service h3{font-family:var(--font-display);font-size:1.2rem;text-transform:uppercase;letter-spacing:.05em;color:var(--white);margin-bottom:10px;line-height:1.3;position:relative;z-index:1}
+.service p{color:var(--muted);font-size:.93rem;position:relative;z-index:1}
+.service .chip{display:inline-block;margin-top:16px;font-size:.74rem;font-weight:600;color:var(--gold);letter-spacing:.06em;position:relative;z-index:1}
+
+/* ---------- Showcase ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.filter{padding:11px 22px;border-radius:999px;font-weight:600;font-size:.88rem;color:var(--muted);border:1px solid var(--card-border);background:var(--card);transition:all .25s}
+.filter:hover{color:var(--white);border-color:var(--coral);transform:translateY(-2px)}
+.filter.active{color:var(--white);background:linear-gradient(135deg,var(--coral),var(--crimson));border-color:transparent;box-shadow:0 8px 24px rgba(225,29,72,.5)}
+.samples{display:grid;gap:26px}
+.sample{border-radius:var(--radius);padding:24px;background:var(--card);border:1px solid var(--card-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:opacity .4s,transform .4s}
+.sample.hide{display:none}
+.sample-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:18px}
+.sample-head h3{font-family:var(--font-display);font-size:1.15rem;text-transform:uppercase;letter-spacing:.05em;color:var(--white)}
+.cat-badge{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;color:var(--gold);border:1px solid rgba(251,191,36,.5);background:rgba(251,191,36,.08)}
+.cols{display:grid;grid-template-columns:1fr;gap:16px}
+.col{border-radius:16px;padding:20px;position:relative}
+.col .label{display:flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.col p{font-size:.97rem;line-height:1.8}
+.col.src{background:rgba(255,255,255,.04);border:1px solid var(--card-border)}
+.col.src .label{color:var(--muted)}
+.col.mt{background:rgba(255,255,255,.025);border:1px dashed rgba(255,255,255,.2)}
+.col.mt .label{color:#a99298}
+.col.mt p{color:#b9a3a9;font-family:var(--font-tamil)}
+.col.human{background:linear-gradient(145deg,rgba(255,59,92,.16),rgba(251,191,36,.09));border:2px solid var(--coral);box-shadow:0 0 0 3px rgba(251,191,36,.14),0 0 34px rgba(255,59,92,.4),inset 0 0 30px rgba(255,59,92,.08);animation:humanGlow 3.6s ease-in-out infinite alternate}
+@keyframes humanGlow{0%{box-shadow:0 0 0 3px rgba(251,191,36,.12),0 0 22px rgba(255,59,92,.3),inset 0 0 24px rgba(255,59,92,.06)}100%{box-shadow:0 0 0 3px rgba(251,191,36,.3),0 0 44px rgba(255,59,92,.55),inset 0 0 34px rgba(255,59,92,.12)}}
+.col.human .label{color:var(--gold)}
+.col.human p{color:var(--white);font-family:var(--font-tamil);font-weight:500}
+.star{display:inline-block;padding:3px 10px;border-radius:999px;background:linear-gradient(135deg,var(--gold),#f59e0b);color:#2a0a10;font-size:.64rem;font-weight:800;letter-spacing:.08em;margin-left:auto}
+
+/* ---------- Experience ---------- */
+.timeline{position:relative;display:grid;gap:26px;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),var(--gold),transparent);border-radius:2px}
+.exp{position:relative;padding:28px 24px;border-radius:var(--radius);background:var(--card);border:1px solid var(--card-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .35s,border-color .35s,box-shadow .35s}
+.exp::before{content:"";position:absolute;left:-26px;top:32px;width:14px;height:14px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(255,59,92,.22),0 0 16px var(--coral)}
+.exp:hover{transform:translateX(6px) translateY(-4px);border-color:var(--coral);box-shadow:var(--shadow-glow)}
+.exp-top{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin-bottom:6px}
+.exp h3{font-family:var(--font-display);font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em;color:var(--white);line-height:1.3}
+.date{font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--gold);padding:5px 12px;border-radius:999px;border:1px solid rgba(251,191,36,.45);background:rgba(251,191,36,.07);white-space:nowrap}
+.org{color:var(--coral);font-weight:600;font-size:.95rem;margin-bottom:14px}
+.exp ul{list-style:none;display:grid;gap:10px}
+.exp li{position:relative;padding-left:22px;color:var(--text);font-size:.95rem}
+.exp li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:2px;transform:rotate(45deg);background:linear-gradient(135deg,var(--coral),var(--gold))}
+.exp .btn{margin-top:22px}
+.vendor-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.vendor{padding:9px 16px;border-radius:12px;font-size:.88rem;font-weight:600;color:var(--white);background:rgba(255,59,92,.12);border:1px solid rgba(255,59,92,.45)}
+.platforms{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.platform{padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:600;border:1px solid var(--card-border);background:rgba(255,255,255,.05);color:var(--text)}
+
+/* ---------- Contact ---------- */
+.contact-note{max-width:760px;font-size:1.1rem;color:var(--white);padding:24px 26px;border-radius:var(--radius);margin-bottom:36px;background:linear-gradient(135deg,rgba(255,59,92,.16),rgba(251,191,36,.08));border:1px solid rgba(255,59,92,.5);box-shadow:0 0 34px rgba(255,59,92,.25)}
+.contact-note em{font-style:normal;color:var(--gold);font-weight:600}
+.brand-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.brand-card{display:flex;align-items:center;gap:18px;padding:22px;border-radius:var(--radius);background:var(--card);border:1px solid var(--card-border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-align:left;width:100%;position:relative;overflow:hidden;
+  transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .35s,border-color .35s}
+.brand-card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(255,59,92,.28),transparent 60%);opacity:0;transition:opacity .35s}
+.brand-card:hover,.brand-card:focus-visible{transform:translateY(-8px) scale(1.04);border-color:var(--coral);box-shadow:0 0 0 2px rgba(255,59,92,.35),0 18px 46px rgba(255,59,92,.55)}
+.brand-card:hover::after{opacity:1}
+.brand-card:hover .b-logo{animation:logoBounce .7s ease}
+@keyframes logoBounce{0%{transform:translateY(0) scale(1)}30%{transform:translateY(-14px) scale(1.12)}55%{transform:translateY(0) scale(.96)}75%{transform:translateY(-6px) scale(1.05)}100%{transform:translateY(0) scale(1)}}
+.b-logo{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1;box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.b-logo svg{width:32px;height:32px}
+.b-text{position:relative;z-index:1;min-width:0}
+.b-text b{display:block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.b-text span{display:block;font-size:.85rem;color:var(--muted);overflow-wrap:anywhere}
+.logo-email{background:linear-gradient(135deg,var(--coral),var(--crimson))}
+.logo-copy{background:linear-gradient(135deg,var(--gold),#f59e0b)}
+.logo-li{background:#0a66c2}
+.logo-proz{background:#1f2937;border:1px solid rgba(255,255,255,.18)}
+.logo-fiverr{background:#1dbf73}
+.logo-legiit{background:linear-gradient(135deg,#7c3aed,#4c1d95)}
+
+footer{padding:40px 0 50px;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--card-border);background:rgba(10,2,5,.45)}
+footer b{color:var(--white);font-family:var(--font-display);letter-spacing:.1em}
+.to-top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--coral),var(--crimson));box-shadow:0 8px 24px rgba(225,29,72,.55);opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity .3s,transform .3s;z-index:120}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);padding:14px 24px;border-radius:999px;background:rgba(22,4,9,.95);border:1px solid var(--gold);color:var(--white);font-weight:600;font-size:.9rem;box-shadow:0 12px 40px rgba(0,0,0,.6),0 0 24px rgba(251,191,36,.3);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:400;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Lightbox ---------- */
+.modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,1,4,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.modal.open{display:flex;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-box{position:relative;width:100%;max-width:760px;max-height:92vh;display:flex;flex-direction:column;border-radius:20px;background:linear-gradient(160deg,var(--bg-1),var(--bg-0));border:1px solid var(--coral);box-shadow:0 0 60px rgba(255,59,92,.45);overflow:hidden;animation:zoomIn .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes zoomIn{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--card-border)}
+.modal-head b{font-family:var(--font-display);letter-spacing:.06em;text-transform:uppercase;font-size:1rem}
+.modal-close{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--card-border);font-size:1.3rem;line-height:1;transition:background .25s,transform .25s}
+.modal-close:hover{background:var(--crimson);transform:rotate(90deg)}
+.modal-body{padding:16px;overflow:auto;display:grid;place-items:center;background:rgba(0,0,0,.25)}
+.modal-body img{width:auto;max-width:100%;max-height:74vh;border-radius:10px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.modal-fallback{display:none;padding:40px 20px;text-align:center;color:var(--muted)}
+.modal-fallback b{color:var(--gold)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:420px){
+  .photo-frame{height:auto}
+  .float-badge{font-size:.7rem;padding:8px 12px}
+  .float-badge.b1{right:-2px}
+  .float-badge.b2{left:-2px}
+}
+@media (min-width:600px){
+  .cards-4{grid-template-columns:repeat(2,1fr)}
+  .brand-grid{grid-template-columns:repeat(2,1fr)}
+  .cols{grid-template-columns:1fr 1fr}
+  .col.src{grid-column:1 / -1}
+}
+@media (min-width:880px){
+  .container{padding:0 32px}
+  .burger,.mobile-menu{display:none}
+  .nav-links{display:flex}
+  .nav-cta{display:inline-block}
+  .hero-grid{grid-template-columns:1.15fr .85fr;gap:60px}
+  .hero h1{font-size:clamp(2.6rem,8.6vw,6.2rem)}
+  .hero-visual{justify-content:flex-end}
+  .about-grid{grid-template-columns:1.4fr 1fr;gap:56px}
+  .timeline{padding-left:40px}
+  .exp::before{left:-40px}
+  .timeline::before{left:-34px}
+  .exp{padding:32px 34px}
+  .brand-grid{grid-template-columns:repeat(3,1fr)}
+  .cols{grid-template-columns:1fr 1fr 1fr}
+  .col.src{grid-column:auto}
+  .sample{padding:28px}
+}
+@media (min-width:1100px){
+  .cards-4{grid-template-columns:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- Cinematic animated background -->
+<div class="bg" aria-hidden="true">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="ribbon r1"></div>
+  <div class="ribbon r2"></div>
+  <svg class="waves" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="wg1" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#ff3b5c" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#ff3b5c" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="wg2" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#e11d48" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#e11d48" stop-opacity=".5"/>
+        <stop offset="1" stop-color="#ff3b5c" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="wf" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="#e11d48" stop-opacity=".16"/>
+        <stop offset="1" stop-color="#160409" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <g class="wave-a">
+      <path d="M-100 250 C 200 150, 420 330, 720 230 S 1240 140, 1540 240 L1540 420 L-100 420 Z" fill="url(#wf)"/>
+      <path class="w" d="M-100 250 C 200 150, 420 330, 720 230 S 1240 140, 1540 240" stroke="url(#wg1)" stroke-width="2.5"/>
+    </g>
+    <g class="wave-b">
+      <path class="w" d="M-100 290 C 240 210, 460 360, 760 280 S 1220 200, 1540 300" stroke="url(#wg2)" stroke-width="2"/>
+    </g>
+    <g class="wave-c">
+      <path class="w" d="M-100 330 C 260 260, 500 390, 800 320 S 1200 270, 1540 340" stroke="url(#wg1)" stroke-width="1.5"/>
+    </g>
+  </svg>
+  <div class="vignette"></div>
+</div>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand" aria-label="Dhanush E - Home"><span class="mono">DE</span>DHANUSH E</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#samples">Samples</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">DM Me</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#samples">Samples</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Get in Touch / DM Me</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-kicker reveal">Portfolio · Available for Projects</div>
+      <h1 class="reveal" style="--d:.1s">Dhanush <span class="accent">E</span></h1>
+      <p class="hero-sub reveal" style="--d:.2s">1st-Year B.E. EEE Student | <strong>Native English ⇄ Tamil Translator, Subtitler &amp; AI Linguistic QA Specialist</strong></p>
+      <div class="pills reveal" style="--d:.3s">
+        <span class="pill"><span class="dot"></span>30+ AI &amp; Linguistic Screenings Cleared</span>
+        <span class="pill"><span class="dot"></span>98% Accuracy on StepZero</span>
+        <span class="pill"><span class="dot"></span>6+ Face-to-Face Interviews</span>
+        <span class="pill"><span class="dot"></span>4+ Months of Freelance Hustle Since Jul 2026</span>
+      </div>
+      <div class="btn-row reveal" style="--d:.4s">
+        <a href="#experience" class="btn btn-primary">View Experience
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch / DM Me
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </a>
+      </div>
+      <a href="#about" class="scroll-ind reveal" style="--d:.5s" aria-label="Scroll down"><span>SCROLL</span><span class="arrow">↓</span></a>
+    </div>
+
+    <div class="hero-visual reveal" style="--d:.25s">
+      <div class="photo-wrap">
+        <div class="photo-frame" id="photoFrame">
+          <img src="profile.jpg" alt="Dhanush E" style="width:100%; height:100%; object-fit:cover; object-position:center 20%;" id="profileImg">
+          <div class="monogram" aria-hidden="true">DE</div>
+        </div>
+        <div class="float-badge b1"><i></i>English ⇄ Tamil</div>
+        <div class="float-badge b2"><i></i>Subtitling &amp; AI QA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="eyebrow reveal">About Me</div>
+    <h2 class="section-title reveal">Engineering Precision. <span>Native Fluency.</span></h2>
+    <div class="divider reveal"></div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="reveal">I am a <strong>1st-Year B.E. Electrical &amp; Electronics Engineering</strong> student at Pollachi Institute of Engineering and Technology (PIE Tech), where I am building a strong foundation in core engineering principles and applied problem-solving. That analytical discipline shapes everything I do beyond the classroom: I approach every translation, transcript and dataset the way an engineer approaches a circuit, with precision, structure and zero tolerance for avoidable errors.</p>
+        <p class="reveal">Alongside my studies, I work as a freelance <strong>English ⇄ Tamil translator</strong> with native Tamil fluency and professional working English. My workflow covers technical and app-UI translation, <strong>video subtitling and post-production localization</strong>, timed captioning, Tamil audio transcription and linguistic quality assurance. I have cleared 30+ professional screenings and AI-driven evaluations and completed a verified internship with Solvitude Solutions, which taught me to follow strict annotation guidelines at speed without compromising quality.</p>
+        <p class="reveal"><strong>Since July 2026, I have put in dedicated, relentless freelance hustle</strong> across global linguistic, subtitling and AI platforms including ProZ, Fiverr, Alignerr, Data Annotation, StepZero and micro1. In that time I have cleared 30+ screenings and delivered consistent quality, because every assessment and every client deliverable is a chance to earn trust.</p>
+        <p class="reveal">I put <strong>client-first delivery</strong> at the centre of my work: clear communication, honest timelines and fast turnaround. I am continually sharpening my skills through active internships via Internshala and real-world projects. Whether you need translation, subtitling, video localization or AI data support, you are warmly invited to <strong>DM me directly</strong>. I would love to hear about your project and help you ship it with confidence.</p>
+      </div>
+      <aside class="about-side">
+        <div class="glass reveal">
+          <h3>Education <span>/</span></h3>
+          <div class="edu-item"><div class="bar"></div><div><b>B.E. Electrical &amp; Electronics Engineering</b><small>Pollachi Institute of Engineering and Technology (PIE Tech) · 2026 – 2030</small></div></div>
+          <div class="edu-item"><div class="bar"></div><div><b>HSC (12th) · Bio-Maths</b><small>Municipal Boys Higher Secondary School (M.B.H.S.S) · 2024 – 2026</small></div></div>
+        </div>
+        <div class="glass reveal" style="--d:.1s">
+          <h3>Languages <span>/</span></h3>
+          <div class="lang-row"><span>Tamil</span><span>Native or Bilingual</span></div>
+          <div class="lang-row"><span>English</span><span>Professional Working</span></div>
+          <div class="lang-row"><span>Hindi</span><span>Elementary</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="skills-block">
+      <h3 class="reveal">Tools &amp; Programming <span>Skills</span></h3>
+      <div class="tags reveal" id="tags" role="list">
+        <button class="tag" role="listitem" data-note="Core engineering programming foundation from my B.E. coursework.">C Programming</button>
+        <button class="tag" role="listitem" data-note="Used for scripting, data handling and workflow automation.">Python</button>
+        <button class="tag" role="listitem" data-note="Advanced subtitle authoring, timing and styling for video localization.">Aegisub</button>
+        <button class="tag" role="listitem" data-note="Precise subtitle editing, sync correction and caption QC.">Subtitle Edit</button>
+        <button class="tag" role="listitem" data-note="Cloud CAT platform for translation and localization projects.">Smartcat</button>
+        <button class="tag" role="listitem" data-note="Basic proficiency in data labeling and annotation workflows.">Labelbox (Basic)</button>
+        <button class="tag" role="listitem" data-note="Production trackers, quality logs and delivery systems.">Google Sheets</button>
+        <button class="tag" role="listitem" data-note="Professional documentation, reports and deliverables.">MS Office</button>
+      </div>
+      <div class="tag-note" id="tagNote" aria-live="polite">Tap a skill to see how I use it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="eyebrow reveal">What I Do</div>
+    <h2 class="section-title reveal">Core <span>Services</span></h2>
+    <div class="divider reveal"></div>
+    <p class="section-sub reveal">Precise, culturally natural Tamil delivered fast, from engineering documents to subtitled video and AI-ready datasets.</p>
+
+    <div class="cards-4">
+      <article class="service reveal">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 5h8M7 3v2M5 9c1.2 2.4 3.2 4.2 5.6 5.3M10 5c-.6 3.6-3 6.6-6.5 8.5"/><path d="M12 21l4.5-10L21 21M13.4 18h6.2"/></svg>
+        </div>
+        <h3>English ⇄ Tamil Human Translation</h3>
+        <p>Accurate, natural-sounding translation for Technical, Engineering, App UI and Business content, written by a native speaker, never a literal machine rendering.</p>
+        <span class="chip">TECHNICAL · ENGINEERING · APP UI · BUSINESS</span>
+      </article>
+      <article class="service reveal" style="--d:.1s">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M6.5 12h4M6.5 15.2h8M13.5 12h4"/></svg>
+        </div>
+        <h3>Audio/Video Transcription, Subtitling &amp; Video Localization</h3>
+        <p>Timed subtitles, captioning and post-production video support, with clean timing, readable line breaks and zero-error transcripts.</p>
+        <span class="chip">TIMED SUBTITLES · CAPTIONING · POST-PRODUCTION</span>
+      </article>
+      <article class="service reveal" style="--d:.2s">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.7-7 9.5-4.1-1.8-7-5.3-7-9.5V6z"/><path d="M8.6 12.2l2.4 2.4 4.4-4.8"/></svg>
+        </div>
+        <h3>Linguistic Quality Assurance (LQA) &amp; Proofreading</h3>
+        <p>Rigorous review of Tamil content for accuracy, terminology, tone and consistency before it reaches your audience.</p>
+        <span class="chip">REVIEW · TERMINOLOGY · CONSISTENCY</span>
+      </article>
+      <article class="service reveal" style="--d:.3s">
+        <div class="s-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12h2.5l2-6 3 12 3-9 2 5 1.5-2H21"/><circle cx="12" cy="12" r="10" stroke-opacity=".35"/></svg>
+        </div>
+        <h3>AI Data Annotation &amp; Speech Validation</h3>
+        <p>Tamil data annotation, speech tagging, audio validation and contextual verification that keep AI training pipelines clean.</p>
+        <span class="chip">ANNOTATION · SPEECH QC · TRANSCRIPTION</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section id="samples">
+  <div class="container">
+    <div class="eyebrow reveal">Translation Showcase</div>
+    <h2 class="section-title reveal">Human vs. <span>Machine Translation</span></h2>
+    <div class="divider reveal"></div>
+    <p class="section-sub reveal">Same source text, two very different results. Notice how the glowing human Tamil column reads like a native wrote it, with correct terminology, natural flow and the right register.</p>
+
+    <div class="filters reveal" id="filters" role="tablist" aria-label="Filter translation samples">
+      <button class="filter active" role="tab" aria-selected="true" data-filter="all">All</button>
+      <button class="filter" role="tab" aria-selected="false" data-filter="tech">Tech / Engineering</button>
+      <button class="filter" role="tab" aria-selected="false" data-filter="ui">App UI</button>
+      <button class="filter" role="tab" aria-selected="false" data-filter="conv">Conversational / Marketing</button>
+    </div>
+
+    <div class="samples" id="samples-list">
+
+      <article class="sample reveal" data-cat="tech">
+        <div class="sample-head"><h3>How a Transformer Works</h3><span class="cat-badge">Tech / Engineering</span></div>
+        <div class="cols">
+          <div class="col src"><div class="label">English Source</div><p>A transformer steps voltage up or down using electromagnetic induction between two coils. The primary winding is connected to the supply, while the secondary winding delivers power to the load. Because the core is laminated, eddy-current losses stay low and efficiency remains high. Always isolate the circuit and verify zero voltage before starting any maintenance work.</p></div>
+          <div class="col mt"><div class="label">Generic Machine Translation</div><p>ஒரு மின்மாற்றி இரண்டு சுருள்களுக்கு இடையே மின்காந்த தூண்டலைப் பயன்படுத்தி மின்னழுத்தத்தை மேலே அல்லது கீழே படிகள் செய்கிறது. முதன்மை முறுக்கு விநியோகத்துடன் இணைக்கப்பட்டுள்ளது, அதே நேரத்தில் இரண்டாம் நிலை முறுக்கு சுமைக்கு சக்தியை வழங்குகிறது. கோர் லேமினேட் செய்யப்பட்டதால், சுழல் மின்னோட்ட இழப்புகள் குறைவாக இருக்கும் மற்றும் செயல்திறன் அதிகமாக இருக்கும். எந்தவொரு பராமரிப்பு வேலையையும் தொடங்குவதற்கு முன் எப்போதும் சுற்றுகளை தனிமைப்படுத்தி பூஜ்ஜிய மின்னழுத்தத்தை சரிபார்க்கவும்.</p></div>
+          <div class="col human"><div class="label">Human Tamil Translation <span class="star">★ NATIVE</span></div><p>மின்மாற்றி (டிரான்ஸ்பார்மர்) இரண்டு சுருள்களுக்கு இடையிலான மின்காந்தத் தூண்டல் மூலம் மின்னழுத்தத்தை உயர்த்தவோ குறைக்கவோ செய்கிறது. முதன்மைச் சுருள் மின் வழங்கலுடன் இணைக்கப்பட்டிருக்கும்; இரண்டாம் நிலைச் சுருள் சுமைக்கு மின்சக்தியை வழங்குகிறது. உள்ளகம் அடுக்கடுக்கான தகடுகளால் ஆனதால் சுழல்மின்னோட்ட இழப்புகள் குறைவாகவே இருக்கும்; எனவே செயல்திறன் அதிகமாக நீடிக்கிறது. எந்தவொரு பராமரிப்புப் பணியையும் தொடங்குவதற்கு முன் மின்சுற்றைத் துண்டித்து, மின்னழுத்தம் பூஜ்யம் என்பதை உறுதிசெய்து கொள்ளுங்கள்.</p></div>
+        </div>
+      </article>
+
+      <article class="sample reveal" data-cat="tech">
+        <div class="sample-head"><h3>Software Update Instructions</h3><span class="cat-badge">Tech / Engineering</span></div>
+        <div class="cols">
+          <div class="col src"><div class="label">English Source</div><p>Before installing the update, back up your configuration files. The installer will check system requirements and download missing dependencies automatically. If the installation fails, review the log file and restart the service. Contact support if the error persists.</p></div>
+          <div class="col mt"><div class="label">Generic Machine Translation</div><p>புதுப்பிப்பை நிறுவும் முன், உங்கள் உள்ளமைவு கோப்புகளை காப்புப்பிரதி எடுக்கவும். நிறுவி கணினி தேவைகளை சரிபார்த்து விடுபட்ட சார்புகளை தானாகவே பதிவிறக்கும். நிறுவல் தோல்வியுற்றால், பதிவு கோப்பை மதிப்பாய்வு செய்து சேவையை மறுதொடக்கம் செய்யவும். பிழை நீடித்தால் ஆதரவைத் தொடர்பு கொள்ளவும்.</p></div>
+          <div class="col human"><div class="label">Human Tamil Translation <span class="star">★ NATIVE</span></div><p>புதுப்பிப்பை நிறுவுவதற்கு முன், உங்கள் கட்டமைப்புக் கோப்புகளைக் காப்புப் பிரதி எடுத்து வைத்துக்கொள்ளுங்கள். நிறுவி, கணினித் தேவைகளைத் தானாகவே சரிபார்த்து, விடுபட்ட சார்புக் கூறுகளையும் பதிவிறக்கம் செய்துவிடும். நிறுவல் தோல்வியடைந்தால், பதிவுக் கோப்பைப் பார்த்து, சேவையை மறுதொடக்கம் செய்யுங்கள். பிழை தொடர்ந்தால் ஆதரவுக் குழுவைத் தொடர்புகொள்ளுங்கள்.</p></div>
+        </div>
+      </article>
+
+      <article class="sample reveal" data-cat="ui">
+        <div class="sample-head"><h3>Food Delivery App Messages</h3><span class="cat-badge">App UI</span></div>
+        <div class="cols">
+          <div class="col src"><div class="label">English Source</div><p>Your order has been placed successfully. You can track delivery in real time from the Orders tab. Tap "Allow" to receive updates about offers and delivery status. You can change notification settings anytime in Profile &gt; Settings.</p></div>
+          <div class="col mt"><div class="label">Generic Machine Translation</div><p>உங்கள் ஆர்டர் வெற்றிகரமாக வைக்கப்பட்டுள்ளது. ஆர்டர்கள் தாவலில் இருந்து நிகழ்நேரத்தில் டெலிவரியை கண்காணிக்கலாம். சலுகைகள் மற்றும் டெலிவரி நிலை பற்றிய புதுப்பிப்புகளைப் பெற 'அனுமதி' என்பதைத் தட்டவும். சுயவிவரம் &gt; அமைப்புகளில் எந்த நேரத்திலும் அறிவிப்பு அமைப்புகளை மாற்றலாம்.</p></div>
+          <div class="col human"><div class="label">Human Tamil Translation <span class="star">★ NATIVE</span></div><p>உங்கள் ஆர்டர் வெற்றிகரமாகப் பதிவு செய்யப்பட்டது. ஆர்டர்கள் தாவலில் உங்கள் பொருள் வந்து சேரும் நிலையை நேரலையில் பார்க்கலாம். சலுகைகள் மற்றும் டெலிவரி நிலை குறித்த அறிவிப்புகளைப் பெற 'அனுமதி' என்பதைத் தட்டவும். அறிவிப்பு அமைப்புகளை சுயவிவரம் &gt; அமைப்புகள் பகுதியில் எப்போது வேண்டுமானாலும் மாற்றிக்கொள்ளலாம்.</p></div>
+        </div>
+      </article>
+
+      <article class="sample reveal" data-cat="conv">
+        <div class="sample-head"><h3>Friendly Invitation</h3><span class="cat-badge">Conversational</span></div>
+        <div class="cols">
+          <div class="col src"><div class="label">English Source</div><p>Hey, are you free this weekend? We're planning a small get-together at my place on Saturday evening. Nothing fancy, just good food and some old stories. Do come along, it won't be the same without you!</p></div>
+          <div class="col mt"><div class="label">Generic Machine Translation</div><p>ஏய், இந்த வார இறுதியில் நீங்கள் இலவசமா? நாங்கள் சனிக்கிழமை மாலை என் இடத்தில் ஒரு சிறிய கூட்டத்தை திட்டமிட்டுள்ளோம். ஆடம்பரமாக எதுவும் இல்லை, நல்ல உணவு மற்றும் சில பழைய கதைகள் மட்டுமே. தயவுசெய்து உடன் வாருங்கள், நீங்கள் இல்லாமல் அது ஒரே மாதிரி இருக்காது!</p></div>
+          <div class="col human"><div class="label">Human Tamil Translation <span class="star">★ NATIVE</span></div><p>என்னப்பா, இந்த வார இறுதியில் ஃப்ரீயா இருக்கியா? சனிக்கிழமை சாயங்காலம் என் வீட்டுல சின்னதா ஒரு கெட்-டுகெதர் பண்ணலாம்னு இருக்கோம். பெரிசா ஒண்ணும் இல்ல, நல்ல சாப்பாடும் கொஞ்சம் பழைய கதைகளும் தான். கண்டிப்பா வந்துடு, நீ இல்லாம கலகலப்பே இருக்காது!</p></div>
+        </div>
+      </article>
+
+      <article class="sample reveal" data-cat="conv">
+        <div class="sample-head"><h3>Solar Energy Advertisement</h3><span class="cat-badge">Marketing</span></div>
+        <div class="cols">
+          <div class="col src"><div class="label">English Source</div><p>Power your home with clean, reliable solar energy. Our smart panels cut your electricity bill by up to 60% from the very first month. Install in just one day with zero hidden charges. Book your free site visit today and step into a brighter future.</p></div>
+          <div class="col mt"><div class="label">Generic Machine Translation</div><p>சுத்தமான, நம்பகமான சூரிய சக்தியுடன் உங்கள் வீட்டிற்கு சக்தி அளிக்கவும். எங்கள் ஸ்மார்ட் பேனல்கள் முதல் மாதத்திலிருந்தே உங்கள் மின்சார கட்டணத்தை 60% வரை குறைக்கின்றன. எந்த மறைக்கப்பட்ட கட்டணங்களும் இல்லாமல் ஒரே நாளில் நிறுவவும். இன்றே உங்கள் இலவச தள வருகையை பதிவு செய்து பிரகாசமான எதிர்காலத்தில் அடியெடுத்து வைக்கவும்.</p></div>
+          <div class="col human"><div class="label">Human Tamil Translation <span class="star">★ NATIVE</span></div><p>தூய்மையான, நம்பகமான சூரிய ஆற்றலால் உங்கள் வீட்டை ஒளிரச் செய்யுங்கள். எங்கள் ஸ்மார்ட் சோலார் பேனல்கள் முதல் மாதத்திலிருந்தே உங்கள் மின் கட்டணத்தை 60% வரை குறைக்கும். மறைமுகக் கட்டணங்கள் எதுவும் இல்லாமல், ஒரே நாளில் பொருத்திவிடுகிறோம். இன்றே இலவச இடப் பார்வைக்குப் பதிவு செய்து, பிரகாசமான எதிர்காலத்தை நோக்கி அடியெடுத்து வையுங்கள்.</p></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="eyebrow reveal">Career &amp; Credentials</div>
+    <h2 class="section-title reveal">Experience &amp; <span>Vendor Roles</span></h2>
+    <div class="divider reveal"></div>
+    <p class="section-sub reveal">Hands-on delivery across AI data, localization and subtitling, backed by an official experience certificate.</p>
+
+    <div class="timeline">
+
+      <article class="exp reveal">
+        <div class="exp-top"><h3>Approved Freelance Vendor (Onboarded)</h3><span class="date">Active</span></div>
+        <div class="org">English ⇄ Tamil Language Vendor</div>
+        <ul>
+          <li>Active English ⇄ Tamil vendor, officially onboarded with <b>Words Lead Language Solutions</b> and <b>OffShoreally</b>.</li>
+          <li>Trusted for translation, transcription and localization assignments with strict turnaround discipline.</li>
+        </ul>
+        <div class="vendor-row" style="margin-top:16px">
+          <span class="vendor">Words Lead Language Solutions</span>
+          <span class="vendor">OffShoreally</span>
+        </div>
+      </article>
+
+      <article class="exp reveal">
+        <div class="exp-top"><h3>AI Data &amp; Audio Transcription Specialist</h3><span class="date">Oct 2026 – Present</span></div>
+        <div class="org">smallest.ai · Remote / Part-time</div>
+        <ul>
+          <li>Transcribe complex Tamil audio recordings, validating contextual accuracy and preparing high-quality linguistic datasets for AI speech models.</li>
+          <li>Perform acoustic and semantic evaluation across diverse dialects, ensuring zero error leakage in training pipelines.</li>
+          <li>Deliver precise time-stamping and zero-error text deliverables, maintaining systematic production logs and quality benchmarks under tight timelines.</li>
+        </ul>
+      </article>
+
+      <article class="exp reveal">
+        <div class="exp-top"><h3>Freelance Technical Localization &amp; Subtitle Specialist</h3><span class="date">Jul 2026 – Present</span></div>
+        <div class="org">Self-Employed · Remote</div>
+        <ul>
+          <li>Scored <b>98% on the StepZero assessment</b> and cleared 30+ technical evaluations and screening tests on international platforms, including ProZ.com.</li>
+          <li>Cleared <b>6+ face-to-face video interviews</b>, including Singularium Technologies on subtitling workflows and DNEG media evaluations.</li>
+          <li>Qualified for enterprise bilingual pipelines such as micro1 for advanced Tamil domain assessments, and evaluated across Alignerr, Data Annotation, ProZ and Fiverr.</li>
+          <li>Submitted verified assessment samples to localization agencies including Somya Translators, Crescendo Transcriptions and Global Listings.</li>
+        </ul>
+        <div class="platforms">
+          <span class="platform">Fiverr</span><span class="platform">ProZ</span><span class="platform">Legiit</span>
+        </div>
+      </article>
+
+      <article class="exp reveal">
+        <div class="exp-top"><h3>Tamil Annotation &amp; Linguistic QA Intern</h3><span class="date">16 Jul 2026 – 19 Aug 2026</span></div>
+        <div class="org">Solvitude Solutions Pvt. Ltd. · Remote</div>
+        <ul>
+          <li>Completed a formal corporate internship as a Tamil Annotator and received an official Experience Certificate recognising the work as hard-working, creative, efficient and intelligent.</li>
+          <li>Delivered high-volume Tamil linguistic data annotation, speech tagging and contextual verification with strict adherence to client guidelines.</li>
+          <li>Worked on labeling, quality checks, categorization and dataset validation, collaborating with remote QA teams to resolve edge cases in semantic classification.</li>
+        </ul>
+        <button class="btn btn-primary" id="openCert" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Experience Certificate
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow reveal">Let's Work Together</div>
+    <h2 class="section-title reveal">Contact &amp; <span>Direct Message</span></h2>
+    <div class="divider reveal"></div>
+    <p class="contact-note reveal">Anyone is welcome to DM me directly for <em>translation, subtitling, video localization, or AI data projects</em>—fast response guaranteed.</p>
+
+    <div class="brand-grid">
+
+      <a class="brand-card reveal" href="mailto:dhanushe340@gmail.com" aria-label="Send an email to dhanushe340@gmail.com">
+        <div class="b-logo logo-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg>
+        </div>
+        <div class="b-text"><b>Email</b><span>dhanushe340@gmail.com</span></div>
+      </a>
+
+      <button class="brand-card reveal" id="copyEmail" style="--d:.08s" aria-label="Copy email address">
+        <div class="b-logo logo-copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2a0a10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg>
+        </div>
+        <div class="b-text"><b>Copy Email</b><span>Tap to copy to clipboard</span></div>
+      </button>
+
+      <a class="brand-card reveal" href="https://www.linkedin.com/in/dhanush-e-44ab6a413" target="_blank" rel="noopener noreferrer" style="--d:.16s" aria-label="Message Dhanush on LinkedIn">
+        <div class="b-logo logo-li">
+          <svg viewBox="0 0 24 24" fill="#fff"><rect x="3.5" y="9" width="3.6" height="11.5" rx=".6"/><circle cx="5.3" cy="5.3" r="2.1"/><path d="M10 9h3.4v1.7c.6-1.1 1.9-2 3.8-2 3.5 0 4.3 2.3 4.3 5.3v6.5h-3.6v-5.8c0-1.4 0-3.1-1.9-3.1s-2.2 1.5-2.2 3v5.9H10z"/></svg>
+        </div>
+        <div class="b-text"><b>LinkedIn</b><span>DM Me</span></div>
+      </a>
+
+      <a class="brand-card reveal" href="https://www.proz.com/translator/4733377" target="_blank" rel="noopener noreferrer" style="--d:.24s" aria-label="View ProZ profile">
+        <div class="b-logo logo-proz">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M9 25V7h8.2a5.6 5.6 0 0 1 0 11.2H9" stroke="#fbbf24" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24.5" r="2.2" fill="#ff3b5c"/></svg>
+        </div>
+        <div class="b-text"><b>ProZ</b><span>proz.com/translator/4733377</span></div>
+      </a>
+
+      <a class="brand-card reveal" href="https://www.fiverr.com" target="_blank" rel="noopener noreferrer" style="--d:.32s" aria-label="Visit Fiverr">
+        <div class="b-logo logo-fiverr">
+          <svg viewBox="0 0 32 32" fill="#fff"><path d="M8 12.5V11a3.4 3.4 0 0 1 3.4-3.4H14v3.4h-1.7a.5.5 0 0 0-.5.5v1H14v3.3h-2.2V24H8v-7.2H6.3v-3.3z"/><path d="M16 13.5h3.6v1.4c.6-1 1.6-1.6 3-1.6h.9v3.7h-1c-1.6 0-2.5.8-2.5 2.5V24H16z"/><rect x="16" y="8.6" width="3.7" height="3" rx="1"/></svg>
+        </div>
+        <div class="b-text"><b>Fiverr</b><span>Hire me for gigs</span></div>
+      </a>
+
+      <a class="brand-card reveal" href="https://www.legiit.com" target="_blank" rel="noopener noreferrer" style="--d:.4s" aria-label="Visit Legiit">
+        <div class="b-logo logo-legiit">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M10 6v16.5h12" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="23.5" cy="9" r="2.4" fill="#fbbf24"/></svg>
+        </div>
+        <div class="b-text"><b>Legiit</b><span>Services marketplace</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p><b>DHANUSH E</b> · English ⇄ Tamil Translator, Subtitler &amp; AI Linguistic QA Specialist</p>
+    <p style="margin-top:6px">Coimbatore / Pollachi, Tamil Nadu, India · © <span id="year">2026</span> All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Certificate lightbox -->
+<div class="modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="certTitle">
+  <div class="modal-box">
+    <div class="modal-head">
+      <b id="certTitle">Experience Certificate · Solvitude Solutions</b>
+      <button class="modal-close" id="closeCert" aria-label="Close certificate">&times;</button>
+    </div>
+    <div class="modal-body">
+      <img src="certificate.jpg" alt="Experience Certificate issued to Dhanush E by Solvitude Solutions Private Limited" id="certImg">
+      <div class="modal-fallback" id="certFallback">Certificate image not found. Please add <b>certificate.jpg</b> to the same folder as index.html.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Year */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* Profile photo fallback */
+  var img = document.getElementById('profileImg');
+  var frame = document.getElementById('photoFrame');
+  function photoMissing(){ img.style.display = 'none'; frame.classList.add('no-photo'); }
+  if (img){
+    img.addEventListener('error', photoMissing);
+    if (img.complete && img.naturalWidth === 0) photoMissing();
+  }
+
+  /* Scroll-reveal */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* Nav: scrolled state, progress bar, back-to-top, active link */
+  var nav = document.getElementById('nav');
+  var progress = document.getElementById('progress');
+  var toTop = document.getElementById('toTop');
+  var sections = ['home','about','services','samples','experience','contact'].map(function(id){return document.getElementById(id);});
+  var links = document.querySelectorAll('#navLinks a');
+  var ticking = false;
+  function onScroll(){
+    var sc = window.pageYOffset || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    nav.classList.toggle('scrolled', sc > 20);
+    progress.style.width = (h > 0 ? (sc / h) * 100 : 0) + '%';
+    toTop.classList.toggle('show', sc > 600);
+    var current = 'home';
+    sections.forEach(function(s){ if (s && s.offsetTop - 140 <= sc) current = s.id; });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ window.requestAnimationFrame(onScroll); ticking = true; }
+  },{passive:true});
+  onScroll();
+  toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  /* Mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open){
+    burger.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  window.addEventListener('resize', function(){ if (window.innerWidth >= 880) setMenu(false); });
+
+  /* Interactive skill tags */
+  var tags = document.querySelectorAll('#tags .tag');
+  var tagNote = document.getElementById('tagNote');
+  tags.forEach(function(t){
+    t.addEventListener('click', function(){
+      var already = t.classList.contains('active');
+      tags.forEach(function(x){ x.classList.remove('active'); });
+      if (already){ tagNote.textContent = 'Tap a skill to see how I use it.'; return; }
+      t.classList.add('active');
+      tagNote.textContent = t.getAttribute('data-note');
+    });
+  });
+
+  /* Sample filters */
+  var filters = document.querySelectorAll('#filters .filter');
+  var samples = document.querySelectorAll('#samples-list .sample');
+  filters.forEach(function(f){
+    f.addEventListener('click', function(){
+      var cat = f.getAttribute('data-filter');
+      filters.forEach(function(x){ x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+      f.classList.add('active'); f.setAttribute('aria-selected','true');
+      samples.forEach(function(s){
+        var show = (cat === 'all' || s.getAttribute('data-cat') === cat);
+        s.classList.toggle('hide', !show);
+        if (show){ s.classList.add('in'); }
+      });
+    });
+  });
+
+  /* Toast */
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+  }
+
+  /* Copy email */
+  var EMAIL = 'dhanushe340@gmail.com';
+  document.getElementById('copyEmail').addEventListener('click', function(){
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = EMAIL; ta.setAttribute('readonly','');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch(e){ ok = false; }
+      document.body.removeChild(ta);
+      showToast(ok ? 'Email copied: ' + EMAIL : 'Copy failed. Please copy: ' + EMAIL);
+    }
+    if (navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(EMAIL).then(function(){
+        showToast('Email copied: ' + EMAIL);
+      }).catch(fallback);
+    } else { fallback(); }
+  });
+
+  /* Certificate lightbox */
+  var modal = document.getElementById('certModal');
+  var openBtn = document.getElementById('openCert');
+  var closeBtn = document.getElementById('closeCert');
+  var certImg = document.getElementById('certImg');
+  var certFallback = document.getElementById('certFallback');
+  var lastFocus = null;
+  function showCertFallback(){ certImg.style.display = 'none'; certFallback.style.display = 'block'; }
+  certImg.addEventListener('error', showCertFallback);
+  function openModal(){
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+})();
+</script>
+</body>
+</html>
